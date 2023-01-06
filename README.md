@@ -2,11 +2,11 @@
 
 Simple CRUD with JSON file to explore Node.js Express.js API
 
-Prerequisites
+# Prerequisites
 
 1.Node.Js
 
-Installing
+ # Installing
 
 1. Clone repository
    https://github.com/okonueugene/Express-BoilerPlate-API.git
