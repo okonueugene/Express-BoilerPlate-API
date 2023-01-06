@@ -15,3 +15,5 @@ Simple CRUD with JSON file to explore Node.js Express.js API
 4. Next run npm install express.
 5. Then run npm install joi.
 6. Finally run node index.js to start server.
+
+Visit localhost:3000
