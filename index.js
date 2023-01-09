@@ -83,7 +83,7 @@ app.get("/api/coursename/:name", (req, res, next) => {
     return course.name.toLowerCase().includes(filters.toLowerCase());
   });
 
-  !filters | (filteredCourses.length === 0)
+ ( !filters | filteredCourses.length === 0)
     ? res.status(404).send("The course with the given name was not found.")
     : res.send(filteredCourses);
 });
