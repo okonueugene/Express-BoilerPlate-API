@@ -77,7 +77,7 @@ app.delete("/api/courses/:id", (req, res) => {
   res.send(course);
 });
 
-app.get("/api/coursename/:name", (req, res, next) => {
+app.get("/api/courses/:name", (req, res, next) => {
   const filters = req.params.name;
 
   if(filters.length === 0) return res.status(400).send("Bad Request");
