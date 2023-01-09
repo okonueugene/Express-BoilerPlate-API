@@ -78,6 +78,15 @@ app.delete("/api/courses/:id", (req, res) => {
   res.send(course);
 });
 
+app.get('/api/coursename/:name', (req, res, next) => {
+  const filters = req.params.name;
+  const filteredCourses = courses.filter((course) => {
+    return course.name.toLowerCase().includes(filters.toLowerCase());
+  });
+
+  res.send(filteredCourses);
+});
+
 function validateCourse(course) {
   const schema = Joi.object({
     name: Joi.string().min(3).required(),
