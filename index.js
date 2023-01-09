@@ -80,7 +80,15 @@ app.delete("/api/courses/:id", (req, res) => {
 app.get("/api/course/:name", (req, res, next) => {
   const filters = req.params.name;
 
-  if(filters.length === 0) return res.status(400).send("Bad Request");
+  //verify parameters have been passed
+  if (!filters) {
+    res.status(400).send("Please enter a course name");
+    return;
+  }
+
+  //filter courses
+
+
 
   const filteredCourses = courses.filter((course) => {
     return course.name.toLowerCase().includes(filters.toLowerCase());
