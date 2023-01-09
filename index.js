@@ -79,11 +79,14 @@ app.delete("/api/courses/:id", (req, res) => {
 
 app.get("/api/coursename/:name", (req, res, next) => {
   const filters = req.params.name;
+
+  if(!filters) return res.status(400).send("Bad Request");
+
   const filteredCourses = courses.filter((course) => {
     return course.name.toLowerCase().includes(filters.toLowerCase());
   });
 
- ( !filters | filteredCourses.length === 0)
+ (filteredCourses.length === 0)
     ? res.status(404).send("The course with the given name was not found.")
     : res.send(filteredCourses);
 });
