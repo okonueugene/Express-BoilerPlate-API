@@ -74,17 +74,18 @@ app.delete("/api/courses/:id", (req, res) => {
 
   fs.writeFileSync("data.json", JSON.stringify(courses));
 
-
   res.send(course);
 });
 
-app.get('/api/coursename/:name', (req, res, next) => {
+app.get("/api/coursename/:name", (req, res, next) => {
   const filters = req.params.name;
   const filteredCourses = courses.filter((course) => {
     return course.name.toLowerCase().includes(filters.toLowerCase());
   });
 
-  res.send(filteredCourses);
+  !filters | (filteredCourses.length === 0)
+    ? res.status(404).send("The course with the given name was not found.")
+    : res.send(filteredCourses);
 });
 
 function validateCourse(course) {

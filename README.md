@@ -23,7 +23,7 @@ Visit http://localhost:3000
 
 # Tests
 
-sample output
+Sample output
 
 {
 
